@@ -1,6 +1,6 @@
 package com.jdidinya.marketwatch.service;
 
-import com.jdidinya.marketwatch.marketwatch.security.JwtUserDetails;
+import com.jdidinya.marketwatch.security.JwtUserDetails;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.exception.ExceptionUtils;
