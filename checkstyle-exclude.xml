@@ -6,6 +6,6 @@
 
 <suppressions>
     <suppress files="MainApplication.java" checks="HideUtilityClassConstructor"/>
-    <suppress files="com.mewebstudio.javaspringbootboilerplate.controller.*" checks="Indentation"/>
-    <suppress files="com.mewebstudio.javaspringbootboilerplate.entity.*" checks="Indentation"/>
+    <suppress files="com.jdidinya.marketwatch.controller.*" checks="Indentation"/>
+    <suppress files="com.jdidinya.marketwatch.entity.*" checks="Indentation"/>
 </suppressions>
