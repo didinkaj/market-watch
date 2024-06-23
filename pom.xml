@@ -238,7 +238,8 @@
                     <url>jdbc:postgresql://localhost:5432/app_db</url>
                     <username>postgres</username>
                     <password>secret</password>
-                    <referenceUrl>jdbc:postgresql://localhost:5432/app_db</referenceUrl>
+<!--                    <referenceUrl>jdbc:postgresql://localhost:5432/app_db</referenceUrl>-->
+                    <referenceUrl>hibernate:spring:com.jdidinya.marketwatch?dialect=org.hibernate.dialect.PostgreSQLDialect&amp;hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy</referenceUrl>
                     <referenceUsername>postgres</referenceUsername>
                     <referencePassword>secret</referencePassword>
                     <verbose>true</verbose>
