@@ -238,7 +238,9 @@
                     <url>jdbc:postgresql://localhost:5432/app_db</url>
                     <username>postgres</username>
                     <password>secret</password>
-                    <referenceUrl>hibernate:spring:com.jdidinya.javaspringbootboilerplate?dialect=org.hibernate.dialect.PostgreSQLDialect&amp;hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy</referenceUrl>
+                    <referenceUrl>jdbc:postgresql://localhost:5432/app_db</referenceUrl>
+                    <referenceUsername>postgres</referenceUsername>
+                    <referencePassword>secret</referencePassword>
                     <verbose>true</verbose>
                 </configuration>
             </plugin>
