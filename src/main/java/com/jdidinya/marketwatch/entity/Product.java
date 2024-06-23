@@ -30,4 +30,7 @@ public class Product  extends AbstractBaseEntity {
 
     @Column(name = "sku", nullable = false, length = 50)
     private String sku;
+
+    @Column(name = "price", nullable = false, length = 50)
+    private Double price;
 }
