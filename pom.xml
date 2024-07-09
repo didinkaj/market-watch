@@ -11,7 +11,7 @@
     <groupId>com.jdidinya</groupId>
     <artifactId>market-watch</artifactId>
     <version>0.0.2</version>
-    <name>java-spring-boot-boilerplate</name>
+    <name>market-watch</name>
     <description>Java Spring Boot Boilerplate (Spring Boot 3)</description>
     <properties>
         <java.version>17</java.version>
