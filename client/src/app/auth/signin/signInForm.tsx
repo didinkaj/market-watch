@@ -29,7 +29,7 @@ catch(error){
   
   return (
       <div className="flex justify-center py-14">
-        <form  onSubmit={handleSubmit}
+        <form onSubmit={handleSubmit}
               className=" shadow-lg border-amber-50 rounded px-8 my-16 gap-5  pb-8 mb-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/3 flex flex-col"
         >
           <h1 className="text-3xl font-bold text-gray-800">Sign In</h1>
@@ -89,8 +89,11 @@ catch(error){
             Sign In
           </button>
           <ToastContainer autoClose={3000} hideProgressBar/>
+          <div>
+            {error && <p className="text-red-500 text-sm">{error}</p>}
+          </div>
         </form>
-        {error && <p className="text-red-500 text-sm">{error}</p>}
+
       </div>
   );
 }
