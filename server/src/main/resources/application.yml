@@ -88,7 +88,7 @@ spring:
           tls:
             enable: ${MAIL_TLS:false}
   liquibase:
-    enabled: ${LIQUIBASE_ENABLED:true}
+    enabled: ${LIQUIBASE_ENABLED:false}
     change-log: classpath:/db/changelog/master.xml
   docker:
     compose:

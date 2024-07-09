@@ -1,0 +1,167 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="johnsondidinya (generated)" id="1719183843279-1">
+        <createTable tableName="settings">
+            <column name="id" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="settingsPK"/>
+            </column>
+            <column name="key" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="value" type="TEXT"/>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="johnsondidinya (generated)" id="1719183843279-2">
+        <createTable tableName="users">
+            <column name="id" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="usersPK"/>
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="avatar" type="TEXT"/>
+            <column name="email_verified_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="blocked_at" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="johnsondidinya (generated)" id="1719183843279-3">
+        <createTable tableName="email_verification_tokens">
+            <column name="id" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="email_verification_tokensPK"/>
+            </column>
+            <column name="user_id" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="token" type="VARCHAR(64)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="expiration_date" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="johnsondidinya (generated)" id="1719183843279-4">
+        <createTable tableName="password_reset_tokens">
+            <column name="id" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="password_reset_tokensPK"/>
+            </column>
+            <column name="user_id" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="token" type="VARCHAR(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="expiration_date" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="johnsondidinya (generated)" id="1719183843279-5">
+        <createTable tableName="roles">
+            <column name="id" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="rolesPK"/>
+            </column>
+            <column name="name" type="VARCHAR(16)"/>
+            <column name="created_at" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated_at" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="johnsondidinya (generated)" id="1719183843279-6">
+        <createIndex indexName="idx_settings_value" tableName="settings">
+            <column name="value"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="johnsondidinya (generated)" id="1719183843279-7">
+        <addUniqueConstraint columnNames="key" constraintName="uk_settings_key" tableName="settings"/>
+    </changeSet>
+    <changeSet author="johnsondidinya (generated)" id="1719183843279-8">
+        <createIndex indexName="idx_users_last_name" tableName="users">
+            <column name="last_name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="johnsondidinya (generated)" id="1719183843279-9">
+        <createIndex indexName="idx_users_name" tableName="users">
+            <column name="name"/>
+        </createIndex>
+    </changeSet>
+    <changeSet author="johnsondidinya (generated)" id="1719183843279-10">
+        <addUniqueConstraint columnNames="email" constraintName="uk_users_email" tableName="users"/>
+    </changeSet>
+    <changeSet author="johnsondidinya (generated)" id="1719183843279-11">
+        <addUniqueConstraint columnNames="user_id" constraintName="uc_email_verification_tokensuser_id_col" tableName="email_verification_tokens"/>
+    </changeSet>
+    <changeSet author="johnsondidinya (generated)" id="1719183843279-12">
+        <addUniqueConstraint columnNames="token" constraintName="uk_email_verification_tokens_token" tableName="email_verification_tokens"/>
+    </changeSet>
+    <changeSet author="johnsondidinya (generated)" id="1719183843279-13">
+        <addUniqueConstraint columnNames="user_id" constraintName="uc_password_reset_tokensuser_id_col" tableName="password_reset_tokens"/>
+    </changeSet>
+    <changeSet author="johnsondidinya (generated)" id="1719183843279-14">
+        <addUniqueConstraint columnNames="token" constraintName="uk_password_reset_tokens_token" tableName="password_reset_tokens"/>
+    </changeSet>
+    <changeSet author="johnsondidinya (generated)" id="1719183843279-15">
+        <addUniqueConstraint columnNames="name" constraintName="uk_roles_name" tableName="roles"/>
+    </changeSet>
+    <changeSet author="johnsondidinya (generated)" id="1719183843279-16">
+        <createTable tableName="user_roles">
+            <column name="user_id" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role_id" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="johnsondidinya (generated)" id="1719183843279-17">
+        <addPrimaryKey columnNames="role_id, user_id" constraintName="user_rolesPK" tableName="user_roles"/>
+    </changeSet>
+    <changeSet author="johnsondidinya (generated)" id="1719183843279-18">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="email_verification_tokens" constraintName="fk_email_verification_tokens_user_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="users" validate="true"/>
+    </changeSet>
+    <changeSet author="johnsondidinya (generated)" id="1719183843279-19">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="password_reset_tokens" constraintName="fk_email_verification_tokens_user_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="users" validate="true"/>
+    </changeSet>
+    <changeSet author="johnsondidinya (generated)" id="1719183843279-20">
+        <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="user_roles" constraintName="fk_user_roles_role_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="roles" validate="true"/>
+    </changeSet>
+    <changeSet author="johnsondidinya (generated)" id="1719183843279-21">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="user_roles" constraintName="fk_user_roles_user_id" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="users" validate="true"/>
+    </changeSet>
+</databaseChangeLog>
